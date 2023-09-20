@@ -1,10 +1,14 @@
 import random
 
-n = random.randint(1, 5)
+number = random.randint(0, 100)
 while True:
-    a = int(input("Guess number: "))
-    if a == n:
-        print("Great! You win!")
+    user_number = int(input("Guess number: "))
+    if user_number == number:
+        print("Congratulations!")
         break
+    elif user_number > 100:
+        print("Invalid number entered")
+    elif user_number < number:
+        print("Incorrect, the number is bigger than the entered number")
     else:
-        print("Try again")
+        print("Incorrect, the number is less than the entered number")
