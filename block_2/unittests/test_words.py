@@ -75,6 +75,7 @@ class TestJoinWords(unittest.TestCase):
         response = requests.get("https://www.google.com/search?q=badger")
         self.assertEqual(response, "badger-racoon")
 
+
     # @patch("requests.get", side_effect=mocked_get)
     # def test_mock_404(self, mock):
     #     print("Test mock")
