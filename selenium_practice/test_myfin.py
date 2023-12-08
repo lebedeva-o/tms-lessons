@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import ActionChains
@@ -37,9 +39,14 @@ class TestMyfin:
 
         click(driver, "//button[contains(@class, 'submitAction')]//span[text()='Подтвердить']")
 
-        autentificate = assert_element(driver, "//*[@class='title']")
-        autentificate_text = autentificate.get_attribute("textContent")
-        assert autentificate_text == "Пройдите идентификацию"
+        for _ in range(10):
+            autentificate = assert_element(driver, "//*[@class='title']")
+            autentificate_text = autentificate.get_attribute("textContent")
+            if autentificate_text == "Пройдите идентификацию":
+                break
+            time.sleep(1)
+        else:
+            raise Exception("Different kind of text")
 
         msi_botton = assert_element(driver, "//*[@class='title']")
         button_style = msi_botton.value_of_css_property("background-color")
