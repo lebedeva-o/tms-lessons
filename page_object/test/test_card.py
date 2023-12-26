@@ -1,4 +1,4 @@
-from page_object.source_code.pages.cards.red_card_2 import RedCard
+from page_object.source_code.pages.cards.red_card_page import RedCard
 from page_object.source_code.pages.main.main_page import MainPage
 
 

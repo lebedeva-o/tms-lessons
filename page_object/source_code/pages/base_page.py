@@ -8,3 +8,6 @@ class BasePage:
 
     def click(self, locator):
         pass
+
+    def open_page(self, url):
+        self.driver.get(url)
